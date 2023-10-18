@@ -35,11 +35,11 @@ public class TemperatureConverter {
 		// TODO Auto-generated method stub
 	}
 	static void CelsiusConverter(double a) {
-		double b = (a * (9/5)+32);
+		double b = ((a - 32) * 5/9);
 		System.out.println(b+" C");
 	}
 	static void FarenheitConverter(double a) {
-		double b = ((a - 32) * 5/9);
+		double b = (a * (9/5)+32);
 		System.out.println(b+" F");
 	}
 
