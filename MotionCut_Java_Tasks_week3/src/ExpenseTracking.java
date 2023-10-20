@@ -104,7 +104,7 @@ public class ExpenseTracking {
                             scanner.nextLine(); 
                             System.out.print("Enter category: ");
                             String c = scanner.nextLine();
-                            expenseTracker.addExpense(d, a, c);
+                            expenseTracker.AddExpense(d, a, c);
                         } else {
                             System.out.println("Invalid amount. Please enter a valid number.");
                             scanner.nextLine(); 
