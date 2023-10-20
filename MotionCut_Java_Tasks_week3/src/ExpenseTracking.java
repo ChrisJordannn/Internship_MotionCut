@@ -16,19 +16,19 @@ class ExpenseTracker {
     ArrayList<Expense> expenses;
     ExpenseTracker() {
         this.expenses = new ArrayList<>();
-        loadExpensesFromFile(); //txt file to program
+        FileToProgram(); //txt file to program
     }
-    void addExpense(String d, double a, String c) {
-        if (isValidAmount(a)) { 
+    void AddExpense(String d, double a, String c) {
+        if (Validation(a)) { 
             Expense expense = new Expense(d, a, c);
             expenses.add(expense);
             System.out.println("Expense added successfully!");
-            saveExpensesToFile();
+            ProgramToFile();
         } else {
             System.out.println("Invalid amount. Please enter a non-negative amount.");
         }
     }//program to txt file
-    void viewExpenses() {
+    void ViewExpenses() {
         if (expenses.isEmpty()) {
             System.out.println("Expense list is empty, please input expense to view it.");
         } else {
@@ -40,7 +40,7 @@ class ExpenseTracker {
             }
         }
     }
-    void expenseSummaries(String c) {
+    void ExpenseSummary(String c) {
         double total = 0;
         for (Expense expense : expenses) {
             if (expense.category.equals(c)) {
@@ -49,10 +49,10 @@ class ExpenseTracker {
         }
         System.out.println("Total expenses for category '" + c + "': " + total);
     }
-    private boolean isValidAmount(double a) {
+    private boolean Validation(double a) {
         return a >= 0;
     }
-    public void saveExpensesToFile() {
+    public void ProgramToFile() {
         try (PrintWriter writer = new PrintWriter(new FileWriter("C:\\Users\\chrisjordan\\Documents\\MotionCutTxt.txt"))) {
             for (Expense expense : expenses) {
                 writer.println(expense.description + "," + expense.amount + "," + expense.category);
@@ -62,7 +62,7 @@ class ExpenseTracker {
             System.out.println("Error saving expenses to file");
         }
     }
-    private void loadExpensesFromFile() {
+    private void FileToProgram() {
         try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\chrisjordan\\Documents\\MotionCutTxt.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -111,15 +111,15 @@ public class ExpenseTracking {
                         }
                         break;
                     case 2:
-                        expenseTracker.viewExpenses();
+                        expenseTracker.ViewExpenses();
                         break;
                     case 3:
                         System.out.print("Enter category for expense summaries: ");
                         String summaryCategory = scanner.nextLine();
-                        expenseTracker.expenseSummaries(summaryCategory);
+                        expenseTracker.ExpenseSummary(summaryCategory);
                         break;
                     case 4:
-                        expenseTracker.saveExpensesToFile(); 
+                        expenseTracker.ProgramToFile(); 
                         System.out.println("Exiting Now!");
                         System.exit(0);
                 }
