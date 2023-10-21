@@ -75,7 +75,7 @@ class ExpenseTracker {
                 }
             }
             System.out.println("Expenses loaded from text file!");
-        } catch (IOException | NumberFormatException e) {
+        } catch (IOException e) {
             System.out.println("Error loading expenses from file");
         }
     }
