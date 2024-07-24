@@ -6,7 +6,7 @@ public class Number_Guesser {
 		Random r = new Random();
 		Scanner s = new Scanner(System.in);
 		int count=0;
-		int random_no = r.nextInt(10)+1;//generates a random number from 0 to 49 and adds 1
+		int random_no = r.nextInt(10)+1;//generates a random number from 0 to 9 and adds 1
 		int guessed_no;
 		System.out.println("**************************");
 		System.out.println("NUMBER GUESSING GAME");
